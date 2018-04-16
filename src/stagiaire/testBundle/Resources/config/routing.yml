@@ -1,0 +1,23 @@
+stagiairetest_homepage:
+    path:     /
+    defaults: { _controller: stagiairetestBundle:Lucky:index }
+
+luckyNumber: 
+    path :  /number/{max}/
+    defaults: {_controller: stagiairetestBundle:Lucky:number, max: 100}
+    requirements:
+       max: \d+
+
+serviceTest: 
+    path :  /service/
+    defaults: {_controller: stagiairetestBundle:Lucky:service }
+
+addTest: 
+    path :  /add/
+    defaults: {_controller: stagiairetestBundle:Lucky:add }
+
+viewTest: 
+    path :  /view/{id}/
+    defaults: {_controller: stagiairetestBundle:Lucky:view, id: 1}
+    requirements:
+       id: \d+

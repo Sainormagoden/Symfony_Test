@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}base.html.twig{% endblock %}</title>
+    </head>
+    <body>
+      {% block title2 %} g{% endblock %}
+        <h1>je suis à la base</h1>
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li>base</li>
+                    <li>test base 2</li>
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block body %} 
+                <p> {{ test }} </p> 
+                <a href="{{path('luckyNumber',{'max' : 150})}}">lien path number</a>
+                <a href="{{url('luckyNumber',{'max' : 300})}}">lien url number</a>       
+            {% endblock %}
+        </div>
+    </body>
+</html>

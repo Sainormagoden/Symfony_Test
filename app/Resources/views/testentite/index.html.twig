@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Testentites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Content</th>
+                <th>Published</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for testEntite in testEntites %}
+            <tr>
+                <td><a href="{{ path('testentite_show', { 'id': testEntite.id }) }}">{{ testEntite.id }}</a></td>
+                <td>{% if testEntite.date %}{{ testEntite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ testEntite.title }}</td>
+                <td>{{ testEntite.author }}</td>
+                <td>{{ testEntite.content }}</td>
+                <td>{% if testEntite.published %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('testentite_show', { 'id': testEntite.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('testentite_edit', { 'id': testEntite.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('testentite_new') }}">Create a new testEntite</a>
+        </li>
+    </ul>
+{% endblock %}

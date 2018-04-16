@@ -1,0 +1,25 @@
+{% extends '@stagiairetest/lucky/base.html.twig' %}
+
+{% block title %}annonce.html.twig{% endblock %}
+
+{% block body %}
+    <h2>Les petites annonces</h2>
+    <p>
+        {{ testEntite.content }}       
+    </p>
+    {# On vérifie qu'une image soit bien associée à l'annonce #}
+    {% if testEntite.image is not null %}
+        <img src="{{ testEntite.image.url }}" alt="{{ testEntite.image.alt }}">
+    {% endif %}
+    <h3>Les réponses</h3>
+    {% if listApplications is defined %}
+        {% for appli in listApplications  %}
+            <p>{{ appli.author }} : {{ appli.content }}</p> 
+        {% endfor %}    
+    {% endif %}  
+    {% if form is defined %}
+    	{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+    {% endif %} 
+{% endblock %}

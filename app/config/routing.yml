@@ -1,0 +1,13 @@
+stagiairetest_test_entite:
+    resource: "@stagiairetestBundle/Controller/TestEntiteController.php"
+    type:     annotation
+
+stagiairetest:
+    resource: "@stagiairetestBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+

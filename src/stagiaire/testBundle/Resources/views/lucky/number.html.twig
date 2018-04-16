@@ -1,0 +1,16 @@
+{% extends '@stagiairetest/lucky/base.html.twig' %}
+
+{% block title %}number.html.twig{% endblock %}
+
+{% block body %}
+        <h2>C'est l'heure du combat</h2>
+        <p>
+            Tu attaques l'ennemie, fais un jet d'attaque (1d {{ max }}) <br>
+            You roll : {{ number }} <br> 
+            L'ennemie tente de se défendre <br> 
+            He roll : {{ advNumber }} <br>
+            {{ result }}
+            <a href="{{path('stagiairetest_homepage')}}">lien path index</a>
+            <a href="{{url('stagiairetest_homepage')}}">lien url index</a>  
+        </p>
+{% endblock %}
