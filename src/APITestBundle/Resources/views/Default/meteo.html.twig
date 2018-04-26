@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/function.js') }}"></script>
+    <title>{% block title %}meteo{% endblock %}</title>
+</head>
+<body>
+<h1>Voici la météo</h1>
+<div id="content">
+    {% block body %}
+        {% if response =="" %}
+        <p>N'essayer pas d'inventer une station!</p>
+        {% else %}
+            <h1>Météo des 5 prochains jours sur la station {{ lieu }} (Version code render...):</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Jours</td>
+                        <td>Température Max en °C</td>
+                        <td>Température Min en °C</td>
+                    </tr>
+                </thead>
+                <tbody id="meteo-ajax">
+                    {% for meteo in response|slice(0, 5) %}
+                        <tr>
+                            <td>{{ meteo.date.day }} {{ meteo.date.monthname }} {{ meteo.date.year }}</td>
+                            <td>{{ meteo.high.celsius }}</td>
+                            <td>{{ meteo.low.celsius }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <script>
+            setInterval(ajaxMeteo, 1000000*1000);
+        </script>
+    {% endblock %}
+</div>
+</body>
+</html>

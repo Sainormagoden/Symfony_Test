@@ -33,4 +33,9 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-    
+
+    APITestBundle\:
+        resource: '../../src/APITestBundle/*'
+        # you can exclude directories or files
+        # but if a service is unused, it's removed anyway
+        exclude: '../../src/APITestBundle/{Entity,Repository,Tests}'
