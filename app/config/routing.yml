@@ -1,13 +1,20 @@
+api_test:
+    resource: "@APITestBundle/Resources/config/routing.yml"
+    prefix:   /API/
+
 stagiairetest_test_entite:
     resource: "@stagiairetestBundle/Controller/TestEntiteController.php"
     type:     annotation
 
 stagiairetest:
     resource: "@stagiairetestBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /stagiaire/
     
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
