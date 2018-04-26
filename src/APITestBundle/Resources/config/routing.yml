@@ -1,0 +1,22 @@
+api_test_homepage:
+    path:     /
+    defaults: { _controller: APITestBundle:Default:index }
+
+api_test_meteo:
+    path:     /meteo/
+    defaults: { _controller: APITestBundle:Default:APIMoche }
+
+api_test_meteo2:
+    path:     /meteo2/{_locale}/{lieu}/{nbJours}/
+    defaults: { _controller: APITestBundle:Default:APIMoinsMoche, _locale: FR, nbJours: 5, lieu:  ISAINTMA100}
+    requirements:
+        _locale:  EN|FR
+        nbJours: \d+
+
+api_test_meteoX:
+    path:     /meteoX/{_locale}/{lieu}/
+    defaults: { _controller: APITestBundle:Default:APITest, _locale: FR, lieu:  ISAINTMA100}
+    requirements:
+        _locale:  EN|FR
+    options:
+        expose: true

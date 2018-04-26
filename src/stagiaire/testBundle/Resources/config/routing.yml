@@ -1,3 +1,6 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 stagiairetest_homepage:
     path:     /
     defaults: { _controller: stagiairetestBundle:Lucky:index }
@@ -21,3 +24,11 @@ viewTest:
     defaults: {_controller: stagiairetestBundle:Lucky:view, id: 1}
     requirements:
        id: \d+
+
+userTest:
+    path : /user/role/
+    defaults: {_controller: stagiairetestBundle:Lucky:testUser }
+
+adminTest:
+    path : /admin/role/
+    defaults: {_controller: stagiairetestBundle:Lucky:testAdmin }

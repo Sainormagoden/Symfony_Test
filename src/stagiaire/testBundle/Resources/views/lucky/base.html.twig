@@ -18,7 +18,9 @@
 
         <div id="content">
             {% block body %} 
-                <p> {{ test }} </p> 
+            	{% if test is defined %}
+                	<p> {{ test }} </p>
+                {% endif %}
                 <a href="{{path('luckyNumber',{'max' : 150})}}">lien path number</a>
                 <a href="{{url('luckyNumber',{'max' : 300})}}">lien url number</a>       
             {% endblock %}
